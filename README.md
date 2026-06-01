@@ -39,7 +39,7 @@ QuickSight connects to Athena to build interactive, palatable, visual dashboards
 
 ---
 
-## Future Improvements
+## 📈 Future Improvements
 
 - Add Glue Crawler for schema automation
 - Add Api Gateway + Lambda for realtime lookups
