@@ -9,7 +9,7 @@ Build using S3, Lambda, DynamoDB, Athena, and Quicksight.
 
 This project demonstrates an end-to-end pipeline that ingests raw Food Price Index data, transforms it using AWS Lambda, stores optimised records in DynamoDB for fast lookups, and publishes data to S3 where we can query for analytics using Athena, as well as creating visualisation for the data using QuickSight.
 
-📌 The main goal is to showcase palatable, scalable and cost-efficient serverless architecture that is ready for real-world analytic workloads
+📌 The main goal is to showcase palatable, scalable and cost-efficient serverless architecture that is ready for real-world analytic workloads for analysing the relation between FPI and inflation rates amongst each country
 
 ---
 
