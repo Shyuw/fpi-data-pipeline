@@ -1,15 +1,31 @@
-# 📊 FPI Data Pipeline (AWS Serverless Architecture)
+# 🌍 CO₂ Emissions Data Pipeline
+Serverless AWS pipeline for processing and analysing annual CO₂ emissions data (2010–2024)  
 
-A fully serverless AWS data pipeline for processing, storing, querying, and visualising Food Price Index (FPI) data.
-Build using S3, Lambda, DynamoDB, Athena, and Quicksight.
+This project ingests a curated global CO₂ emissions dataset, processes it through a serverless ETL pipeline, stores structured results in DynamoDB, and publishes analytics JSON for downstream APIs and dashboards.  
+
+The architecture is lightweight, cost‑efficient, and designed for real‑time updates whenever new data is uploaded to S3.
+
+---
+### Columns
+
+| Column | Description |
+|--------|-------------|
+| Entity | Country name |
+| Code | ISO‑3166 alpha‑3 code |
+| Year | Year of measurement |
+| Annual CO₂ emissions | Emissions in tonnes (integer) |
+
+The dataset is intentionally lightweight to keep the pipeline fast and inexpensive while still supporting meaningful global emissions insights.
 
 ---
 
-## 🌍 Overview
+## 📦 Dataset Overview
 
-This project demonstrates an end-to-end pipeline that ingests raw Food Price Index data, transforms it using AWS Lambda, stores optimised records in DynamoDB for fast lookups, and publishes data to S3 where we can query for analytics using Athena, as well as creating visualisation for the data using QuickSight.
+The pipeline processes a curated CSV containing:
 
-📌 The main goal is to showcase palatable, scalable and cost-efficient serverless architecture that is ready for real-world analytic workloads for analysing the relation between FPI and inflation rates amongst each country
+- 34 countries + World aggregate  
+- 15 years of data (2010–2024)  
+- 526 total rows (including header)
 
 ---
 
