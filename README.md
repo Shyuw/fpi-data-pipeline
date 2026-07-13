@@ -31,7 +31,7 @@ The pipeline processes a curated CSV containing:
 
 ## 🏗 Architecture Diagram
 
-![FPI Data Pipeline](architecture/FPI_DataPipeline_Project.drawio.png)
+![FPI Data Pipeline](architecture/co2_pipeline_architecture.drawio.png)
 
 ---
 
