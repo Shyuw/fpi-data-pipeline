@@ -37,21 +37,23 @@ The pipeline processes a curated CSV containing:
 
 ## 🔁 How the Pipeline Works
 
-1. **Raw Data Ingestion (S3 Raw bucket)**  
-Raw CSV files are sourced and uploaded to an S3 Bucket. This will be the designated landing zone for unprocessed data.
+1. **Ingestion (S3 Raw bucket)**  
+Raw CO2 emissions CSVs are uploaded to a dedicated S3 bucket, the landing zone for unprocessed data.
 
-3. **Transformation (Lambda Function)**  
-A Lambda function is triggered to clean, parse, and transform the raw FPI records, preparing them for fast lookups in DynamoDB and analytics processing in S3.
+2. **Transformation (Lambda Function)**  
+An S3 upload triggers a Lambda function that parses and validates the CSV, then writes in parallel to two destinations: DynamoDB for structured lookups, and a second S3 bucket for analytics.
 
-4. **Fast Lookups (DynamoDB Processed Table)**  
-Transformed records are stored in DynamoDB for low-latency access and API-driven use cases.
+3. **Structured Storage (DynamoDB Processed Table)**  
+Transformed records are stored using a key system directly related to 'Year' and 'Country' for low-latency lookups. Not currently exposed to via a live API, but structured for that use case.
 
-5. **SQL Querying (Athena)**  
-Processed data is exported to an S3 bucket dedicated for analytics in a query-friendly format.
+4. **Analytics Export (S3 Analytics Bucket)**  
+In parallel, the same records that are sent to DDB, are also written as newline-delimited JSON to a second bucket. This particular format can be queried bu Athena directly, without any import step.
 
-6. **Visualisation (QuickSight Dashboard)**
-QuickSight connects to Athena to build interactive, palatable, visual dashboards  
-**NOTE: --- dashed lined arrows indicate queried data, not movement of data**
+5. **SQL Querying (Athena)**
+An external table over the analytics bucket lets Athena run SQL directly against the S3 files, with no separate database or ETL required.
+
+6. **Visualisation (QuickSight)**
+Quicksight connects to Athena as a data source to build the interactive dashboard.
 
 ---
 
