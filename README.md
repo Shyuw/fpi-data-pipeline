@@ -23,9 +23,9 @@ The dataset is intentionally lightweight to keep the pipeline fast and inexpensi
 
 The pipeline processes a curated CSV containing:
 
-- 34 countries + World aggregate  
+- 35 countries + World aggregate (36 total entities)
 - 15 years of data (2010–2024)  
-- 526 total rows (including header)
+- 540 total rows (541 including header)
 
 ---
 
