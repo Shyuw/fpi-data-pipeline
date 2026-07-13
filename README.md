@@ -49,10 +49,10 @@ Transformed records are stored using a key system directly related to 'Year' and
 4. **Analytics Export (S3 Analytics Bucket)**  
 In parallel, the same records that are sent to DDB, are also written as newline-delimited JSON to a second bucket. This particular format can be queried bu Athena directly, without any import step.
 
-5. **SQL Querying (Athena)**
+5. **SQL Querying (Athena)**  
 An external table over the analytics bucket lets Athena run SQL directly against the S3 files, with no separate database or ETL required.
 
-6. **Visualisation (QuickSight)**
+6. **Visualisation (QuickSight)**  
 Quicksight connects to Athena as a data source to build the interactive dashboard.
 
 ---
